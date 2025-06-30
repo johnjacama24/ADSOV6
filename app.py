@@ -51,7 +51,7 @@ if st.button("🔍 Realizar predicción"):
         fila["Cantidad de quejas"] = quejas
         fila["Cantidad de Reversiones"] = reversiones
         fila["Género"] = dicc_genero[genero_opcion]
-        fila["estado_civl"] = dicc_estado_civil[estado_civil_opcion]
+        fila["Estado Civil"] = dicc_estado_civil[estado_civil_opcion]
 
         entrada = pd.DataFrame([fila])
 
