@@ -12,20 +12,18 @@ def cargar_modelo():
         return (
             data["model"],
             data["label_encoder_mapping"],
-            data["diccionario_desarrollar"],
-            data["diccionario_recolectar"],
-            data["diccionario_construir"],
+            data["diccionario_genero"],
+            data["diccionario_estado_civil"],
             data["dataframe_codificado_top5"],
         )
 
-modelo, dicc_estado, dicc_desarrollar, dicc_recolectar, dicc_construir, df_ref = cargar_modelo()
+modelo, dicc_estado, dicc_genero, dicc_estado_civil, df_ref = cargar_modelo()
 
 # ------------------------------
 # Invertir los diccionarios para mostrar en el selectbox y mapear al código
 # ------------------------------
-inv_desarrollar = {v: k for k, v in dicc_desarrollar.items()}
-inv_recolectar = {v: k for k, v in dicc_recolectar.items()}
-inv_construir = {v: k for k, v in dicc_construir.items()}
+inv_genero = {v: k for k, v in dicc_genero.items()}
+inv_estado_civil = {v: k for k, v in dicc_estado_civil.items()}
 
 # ------------------------------
 # Interfaz de usuario
@@ -35,11 +33,12 @@ st.markdown("Seleccione las opciones correspondientes y presione el botón para 
 
 # Campos de entrada
 edad = st.slider("Edad", 15, 60, 25)
+reversiones = st.slider("Cantidad de Reversiones", 0, 10, 0)
 quejas = st.slider("Cantidad de quejas", 0, 10, 0)
+estrato = st.slider("estrato", 0, 10, 0)
 
-desarrollar_opcion = st.selectbox("Desarrollar procesos lógicos", list(dicc_desarrollar.keys()))
-recolectar_opcion = st.selectbox("Recolectar información del software", list(dicc_recolectar.keys()))
-construir_opcion = st.selectbox("Construir la base de datos", list(dicc_construir.keys()))
+genero_opcion = st.selectbox("genero", list(dicc_genero.keys()))
+estado_civil_opcion = st.selectbox("estado civl", list(dicc_estado_civil.keys()))
 
 # ------------------------------
 # Botón para predecir
@@ -50,9 +49,9 @@ if st.button("🔍 Realizar predicción"):
 
         fila["Edad"] = edad
         fila["Cantidad de quejas"] = quejas
-        fila["DESARROLLAR PROCESOS LÓGICOS"] = dicc_desarrollar[desarrollar_opcion]
-        fila["RECOLECTAR INFORMACIÓN DEL SOFTWARE"] = dicc_recolectar[recolectar_opcion]
-        fila["CONSTRUIR LA BASE DE DATOS"] = dicc_construir[construir_opcion]
+        fila["Cantidad de Reversiones"] = reversiones
+        fila["Género"] = dicc_genero[genero_opcion]
+        fila["estado_civl"] = dicc_estado_civil[estado_civil_opcion]
 
         entrada = pd.DataFrame([fila])
 
