@@ -35,7 +35,7 @@ st.markdown("Seleccione las opciones correspondientes y presione el botón para 
 edad = st.slider("Edad", 15, 60, 25)
 reversiones = st.slider("Cantidad de Reversiones", 0, 10, 0)
 quejas = st.slider("Cantidad de quejas", 0, 10, 0)
-estrato = st.slider("estrato", 0, 10, 0)
+estrato = st.slider("Estrato", 0, 10, 0)
 
 genero_opcion = st.selectbox("Género", list(dicc_genero.keys()))
 estado_civil_opcion = st.selectbox("Estado Civil", list(dicc_estado_civil.keys()))
