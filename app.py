@@ -7,7 +7,7 @@ import pickle
 # ------------------------------
 @st.cache_resource
 def cargar_modelo():
-    with open("best_model.pkl", "rb") as file:
+    with open("best_model_1.pkl", "rb") as file:
         data = pickle.load(file)
         return (
             data["model"],
