@@ -37,8 +37,8 @@ reversiones = st.slider("Cantidad de Reversiones", 0, 10, 0)
 quejas = st.slider("Cantidad de quejas", 0, 10, 0)
 estrato = st.slider("estrato", 0, 10, 0)
 
-genero_opcion = st.selectbox("genero", list(dicc_genero.keys()))
-estado_civil_opcion = st.selectbox("estado civl", list(dicc_estado_civil.keys()))
+genero_opcion = st.selectbox("Género", list(dicc_genero.keys()))
+estado_civil_opcion = st.selectbox("Estado Civil", list(dicc_estado_civil.keys()))
 
 # ------------------------------
 # Botón para predecir
